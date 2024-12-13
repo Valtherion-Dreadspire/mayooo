@@ -117,7 +117,7 @@ a:focus {
 
 .header_section {
   padding: 15px 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+  background: #612F0A;
   position: relative;
   z-index: 1;
 }
@@ -264,7 +264,7 @@ a:focus {
 .fullscreen-video-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* Membuat video memenuhi seluruh layar */
+  height: 500vh; /* Membuat video memenuhi seluruh layar */
   background-color: #000; /* Latar belakang hitam agar video lebih menonjol */
   display: flex;
   justify-content: center;
@@ -273,36 +273,31 @@ a:focus {
 }
 
 /* Styling untuk video container */
-.fullscreen-video-section .video-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 100%; /* Lebar maksimal 100% dari layar */
-  max-height: 100%; /* Tinggi maksimal 100% dari layar */
+.video_section .video-container {
+  display: flex;
+  justify-content: center; /* Posisi horizontal di tengah */
+  align-items: center;    /* Posisi vertikal di tengah */
+  height: auto;           /* Sesuaikan tinggi secara otomatis */
+  padding: 20px;          /* Tambahkan padding untuk jarak */
 }
 
 /* Styling untuk iframe (video) */
-.fullscreen-video-section iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Lebar video 100% dari layar */
-  height: 100%; /* Tinggi video 100% dari layar */
+.video_section iframe {
+  width: 60%;  /* Lebar video lebih kecil, 60% dari kontainer */
+  height: 315px; /* Tinggi video tetap proporsional */
   border: none;
-  border-radius: 0;
-  object-fit: cover; /* Membuat video menutupi seluruh area tanpa distorsi */
+  border-radius: 8px; /* Tambahkan sudut melengkung */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk tampilan lebih estetis */
 }
 
 /* Responsivitas untuk perangkat lebih kecil */
 @media (max-width: 768px) {
-  .fullscreen-video-section {
-    height: 100vh; /* Menjaga video tetap fullscreen di perangkat kecil */
-  }
-
-  .fullscreen-video-section iframe {
-    object-position: center; /* Menjaga posisi video tetap di tengah */
+  .video_section iframe {
+    width: 90%;  /* Lebar video menjadi lebih kecil di perangkat kecil */
+    height: auto; /* Tinggi menyesuaikan proporsi */
   }
 }
+
 
 /* end Styling untuk video section */
 
@@ -611,52 +606,99 @@ a:focus {
 }
 
 .about_section {
-  background: #222831;
+  background: linear-gradient(135deg, #e69c00, #dd4205); /* Gradient di background section */
   color: #ffffff;
+  padding: 60px 0;
 }
 
 .about_section .row {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .about_section .img-box {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
-.about_section .img-box img {
+.gradient-circle {
+  display: inline-block;
+  width: 350px; /* Ukuran lingkaran logo */
+  height: 350px;
+  background:#612F0A; 
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient-circle img {
   width: 100%;
-  max-width: 445px;
-  position: relative;
-  z-index: 2;
+  height: 100%;
+  border-radius: 50%; /* Membuat gambar berbentuk lingkaran */
+  object-fit: cover;
+}
+
+.about_section .detail-box {
+  text-align: left;
 }
 
 .about_section .detail-box p {
   margin-top: 15px;
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .about_section .detail-box a {
   display: inline-block;
-  padding: 10px 45px;
-  background-color: #ffbe33;
+  padding: 12px 30px;
+  background-color: #612F0A;
   color: #ffffff;
-  border-radius: 45px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
   margin-top: 15px;
 }
 
 .about_section .detail-box a:hover {
   background-color: #e69c00;
 }
+
+
+
+/* Ukuran gambar pada Slide 1 (gambar kecil dengan tulisan) */
+.small-img {
+  max-width: 150px;  /* Setel lebar maksimal gambar */
+  height: 150px;     /* Setel tinggi gambar */
+  object-fit: cover; /* Agar gambar tetap terpotong sesuai rasio */
+}
+
+/* Ukuran gambar pada Slide 2, 3, dan 4 (gambar besar tanpa tulisan) */
+.large-img {
+  max-width: 800px;  /* Setel lebar gambar lebih besar */
+  height: 300px;     /* Setel tinggi gambar lebih besar */
+  object-fit: cover; /* Agar gambar tetap terpotong sesuai rasio */
+}
+
+/* Styling untuk judul "Promo Spesial" */
+.promo-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff; /* Warna putih untuk judul */
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient warna orange */
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Background gradient untuk carousel frame */
+.carousel_section {
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient warna orange */
+  padding: 20px 0;
+  border-radius: 10px;
+}
+
+
 
 .book_section {
   position: relative;
@@ -1028,4 +1070,110 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
+
+/* product detail */
+.product-detail {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.product-image {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.product-image .image-caption {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.product-info h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.price {
+  font-size: 20px;
+  color: #d32f2f;
+  margin: 10px 0;
+}
+
+.stock {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.stock .status {
+  font-weight: bold;
+}
+
+.stock .status.tersedia {
+  color: #4caf50;
+}
+
+.category {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.whatsapp-button {
+  background-color: #8b0000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 15px 0;
+  display: inline-block;
+}
+
+.whatsapp-button:hover {
+  background-color: #7a0000;
+}
+
+.social-share {
+  margin-top: 20px;
+}
+
+.social-share a {
+  text-decoration: none;
+  color: #333;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.social-share a:hover {
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=style.css.map */
